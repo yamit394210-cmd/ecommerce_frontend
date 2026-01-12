@@ -1,4 +1,4 @@
-<div class="users-container">
+<div class="categories-container">
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-header">
@@ -51,34 +51,31 @@
             </ul>
         </nav>
     </aside>
-
-    <div class="col-sm-4 offset-5 mt-5">
-        <b>USER PANEL</b>
-        <hr/>
-        <form (submit)="login()">
-            <label for="name">Enter Name</label>
-            <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name" />
-            <br />
-            <label for="email">Enter Email</label>
-            <input type="email" name="email" class="form-control" id="email" [(ngModel)]="email" />
-            <br />
-            <label for="password">Enter Password</label>
-            <input type="password" name="password" class="form-control" id="password" [(ngModel)]="password" />
-            <br />
-            <div class="dropdown" name="role" [(ngModel)]="role">
-                <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Choose Role
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Admin</a></li>
-                    <li><a class="dropdown-item" href="#">Wherehouse</a></li>
-                    
-                </ul>
+    <div class="col-sm-10">
+        <!-- Update Modal -->
+<div class="modal d-block mt-5" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Category</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <br/>
-            <button class="btn btn-primary">Submit</button>
-        </form>
+            <div class="modal-body">
+                <form (submit)="updateCategory()">
+                    <label for="name">Update Category Name</label>
+                    <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name" />
+                    <br />
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
+</div>
+    </div>
+    
 
 </div>
+

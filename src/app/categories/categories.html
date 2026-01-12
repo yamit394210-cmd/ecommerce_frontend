@@ -1,1 +1,176 @@
-<p>categories works!</p>
+<div class="categories-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>AdminPanel</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+                        <span class="icon">📊</span>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/categories" routerLinkActive="active" class="nav-item">
+                        <span class="icon">📁</span>
+                        Categories
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/products" routerLinkActive="active" class="nav-item">
+                        <span class="icon">📦</span>
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/orders" routerLinkActive="active" class="nav-item">
+                        <span class="icon">🛍️</span>
+                        Orders
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/customers" routerLinkActive="active" class="nav-item">
+                        <span class="icon">👥</span>
+                        Customers
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/users" routerLinkActive="active" class="nav-item">
+                        <span class="icon">👤</span>
+                        Users
+                    </a>
+                </li>
+                <li class="mt-auto">
+                    <a routerLink="/login" class="nav-item logout">
+                        <span class="icon">🚪</span>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-bar">
+            <h1>Dashboard Overview</h1>
+            <div class="user-profile">
+                <span class="user-name">Admin User</span>
+                <div class="avatar">A</div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon revenue">💰</div>
+                <div class="stat-details">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-value">$54,230</p>
+                    <span class="stat-change positive">+12% from last month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orders">🛒</div>
+                <div class="stat-details">
+                    <h3>Total Orders</h3>
+                    <p class="stat-value">1,250</p>
+                    <span class="stat-change positive">+5% from last month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon products">📦</div>
+                <div class="stat-details">
+                    <h3>Total Products</h3>
+                    <p class="stat-value">340</p>
+                    <span class="stat-change neutral">0% from last month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon customers">👥</div>
+                <div class="stat-details">
+                    <h3>Total Customers</h3>
+                    <p class="stat-value">890</p>
+                    <span class="stat-change positive">+8% from last month</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Categories overview -->
+        <div class="recent-section">
+            <div class="section-header">
+                <h2>Recent Categories</h2>
+                <button class="btn btn-primary offset-4" (click)="openForm()">Add Category</button>
+                <hr />
+                <br />
+                <div class="modal d-block mt-5" tabindex="-1" *ngIf="showForm">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add New Category</h5>
+                            </div>
+                            <div class="modal-body">
+                                <form (submit)="addCategory()">
+                                    <label for="name">Enter Category Name</label>
+                                    <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name" />
+                                    <br />
+                                    <button class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" (click)="closeForm()">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category ID</th>
+                            <th>Category Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>Electronics</td>
+                            <td>
+                               
+                                <button class="btn btn-warning" (click)="edit()">Edit</button>
+                                &nbsp;
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Clothes</td>
+                            <td>
+                                
+                                <button class="btn btn-warning" (click)="edit()">Edit</button>
+                                &nbsp;
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Grocerry</td>
+                            <td>
+                                
+                                <button class="btn btn-warning" (click)="edit()">Edit</button>
+                                &nbsp;
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>

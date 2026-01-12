@@ -6,6 +6,8 @@ import { Dashboard } from './dashboard/dashboard';
 import { Orders } from './orders/orders';
 import { Products } from './products/products';
 import { Users } from './users/users';
+import { Updatecategory } from './updatecategory/updatecategory';
+import { Updateproduct } from './updateproduct/updateproduct';
 
 export const routes: Routes = [
     {path:"", component:Login}, 
@@ -14,5 +16,7 @@ export const routes: Routes = [
     {path:"dashboard", component:Dashboard},
     {path:"users", component:Users},
     {path:"orders", component:Orders},
-    {path:"products", component:Products}
+    {path:"products", component:Products},
+    {path:"updatecategory", component:Updatecategory},
+    {path:"updateproduct", component:Updateproduct}
 ]

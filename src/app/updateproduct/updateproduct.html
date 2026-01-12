@@ -1,0 +1,97 @@
+<div class="updateproduct-container">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>AdminPanel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+                            <span class="icon">📊</span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/categories" routerLinkActive="active" class="nav-item">
+                            <span class="icon">📁</span>
+                            Categories
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/products" routerLinkActive="active" class="nav-item">
+                            <span class="icon">📦</span>
+                            Products
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/orders" routerLinkActive="active" class="nav-item">
+                            <span class="icon">🛍️</span>
+                            Orders
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/customers" routerLinkActive="active" class="nav-item">
+                            <span class="icon">👥</span>
+                            Customers
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/users" routerLinkActive="active" class="nav-item">
+                            <span class="icon">👤</span>
+                            Users
+                        </a>
+                    </li>
+                    <li class="mt-auto">
+                        <a routerLink="/login" class="nav-item logout">
+                            <span class="icon">🚪</span>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Update Modal -->
+
+        <div class="modal d-block offset-1" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Update Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form (submit)="updateProduct()">
+                            <label for="name">Update Product Name</label>
+                            <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name" />
+                            <br />
+                            <label for="mrp">Update Product MRP</label>
+                            <input type="number" name="mrp" class="form-control" id="mrp" [(ngModel)]="mrp" />
+                            <br />
+                            <label for="saleprice">Update Product Sale Price</label>
+                            <input type="number" name="saleprice" class="form-control" id="saleprice"
+                                [(ngModel)]="saleprice" />
+                            <br />
+                            <label for="description">Update Product Description</label>
+                            <input type="text" name="description" class="form-control" id="description"
+                                [(ngModel)]="description" />
+                            <br />
+                            <label for="image1">Update Product Image1</label>
+                            <input type="file" name="image1" class="form-control" id="image1" />
+                            <br />
+                            <label for="image2">Update Product Image2</label>
+                            <input type="file" name="image2" class="form-control" id="image2" />
+                            <br />
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

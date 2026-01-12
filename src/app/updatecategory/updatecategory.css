@@ -2,7 +2,7 @@
   display: block;
 }
 
-.customers-container {
+.dashboard-container {
   display: flex;
   min-height: 100vh;
   background-color: #f1f5f9;
@@ -190,75 +190,3 @@
 .stat-change.positive { color: #16a34a; }
 .stat-change.neutral { color: #64748b; }
 .stat-change.negative { color: #ef4444; }
-
-/* Recent Orders Table */
-.recent-section {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.section-header h2 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #1e293b;
-}
-
-.view-all-btn {
-  background: none;
-  border: none;
-  color: #3b82f6;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.table-container {
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-th {
-  color: #64748b;
-  font-weight: 600;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-td {
-  color: #334155;
-  font-size: 0.95rem;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-
-.status {
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.status.completed { background-color: #dcfce7; color: #16a34a; }
-.status.pending { background-color: #ffedd5; color: #ea580c; }
-.status.processing { background-color: #dbeafe; color: #2563eb; }

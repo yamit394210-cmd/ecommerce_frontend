@@ -1,1 +1,219 @@
-<p>products works!</p>
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>AdminPanel</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+            <span class="icon">📊</span>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a routerLink="/categories" routerLinkActive="active" class="nav-item">
+            <span class="icon">📁</span>
+            Categories
+          </a>
+        </li>
+        <li>
+          <a routerLink="/products" routerLinkActive="active" class="nav-item">
+            <span class="icon">📦</span>
+            Products
+          </a>
+        </li>
+        <li>
+          <a routerLink="/orders" routerLinkActive="active" class="nav-item">
+            <span class="icon">🛍️</span>
+            Orders
+          </a>
+        </li>
+        <li>
+          <a routerLink="/customers" routerLinkActive="active" class="nav-item">
+            <span class="icon">👥</span>
+            Customers
+          </a>
+        </li>
+        <li>
+          <a routerLink="/users" routerLinkActive="active" class="nav-item">
+            <span class="icon">👤</span>
+            Users
+          </a>
+        </li>
+        <li class="mt-auto">
+          <a routerLink="/login" class="nav-item logout">
+            <span class="icon">🚪</span>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="top-bar">
+      <h1>Dashboard Overview</h1>
+      <div class="user-profile">
+        <span class="user-name">Admin User</span>
+        <div class="avatar">A</div>
+      </div>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon revenue">💰</div>
+        <div class="stat-details">
+          <h3>Total Revenue</h3>
+          <p class="stat-value">$54,230</p>
+          <span class="stat-change positive">+12% from last month</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon orders">🛒</div>
+        <div class="stat-details">
+          <h3>Total Orders</h3>
+          <p class="stat-value">1,250</p>
+          <span class="stat-change positive">+5% from last month</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon products">📦</div>
+        <div class="stat-details">
+          <h3>Total Products</h3>
+          <p class="stat-value">340</p>
+          <span class="stat-change neutral">0% from last month</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon customers">👥</div>
+        <div class="stat-details">
+          <h3>Total Customers</h3>
+          <p class="stat-value">890</p>
+          <span class="stat-change positive">+8% from last month</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Orders Placeholder -->
+    <div class="recent-section">
+      <div class="section-header">
+        <h2>Recent Products</h2>
+        <button class="btn btn-primary" (click)="openForm()">Add Product</button>
+        <div class="dropdown">
+          <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Choose category
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Electronics</a></li>
+            <li><a class="dropdown-item" href="#">Clothes</a></li>
+            <li><a class="dropdown-item" href="#">Grocerry</a></li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <div class="modal d-block offset-1" tabindex="-1" *ngIf="showForm">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add New Product</h5>
+              <button type="button" class="btn-close" (click)="closeForm()"></button>
+            </div>
+            <div class="modal-body">
+              <form (submit)="addProduct()">
+                <label for="name">Enter Product Name</label>
+                <input type="text" name="name" class="form-control" id="name" [(ngModel)]="name" />
+                <br />
+                <label for="mrp">Enter Product MRP</label>
+                <input type="number" name="mrp" class="form-control" id="mrp" [(ngModel)]="mrp" />
+                <br />
+                <label for="saleprice">Enter Product Sale Price</label>
+                <input type="number" name="saleprice" class="form-control" id="saleprice" [(ngModel)]="saleprice" />
+                <br />
+                <label for="description">Enter Product Description</label>
+                <input type="text" name="description" class="form-control" id="description" [(ngModel)]="description" />
+                <br />
+                <label for="image1">Enter Product Image1</label>
+                <input type="file" name="image1" class="form-control" id="image1" />
+                <br />
+                <label for="image2">Enter Product Image2</label>
+                <input type="file" name="image2" class="form-control" id="image2" />
+                <br />
+                <button class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" (click)="closeForm()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Product MRP</th>
+              <th>Product Sale Price</th>
+              <th>Product Description</th>
+              <th>Product Image1</th>
+              <th>Product image2</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>Wirelsess Mouse</td>
+              <td>$5</td>
+              <td>$4</td>
+              <td>Hp</td>
+              <td>Image1</td>
+              <td>Image2</td>
+              <td class="d-flex gap-1">
+                <button class="btn btn-info" (click)="edit()">Edit</button>
+                <br />
+                <button class="btn btn-danger" (click)="delete()">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>Bluetooth SmartWatch</td>
+              <td>$5</td>
+              <td>$4</td>
+              <td>Hp</td>
+              <td>Image1</td>
+              <td>Image2</td>
+              <td class="d-flex gap-1">
+                <button class="btn btn-info" (click)="edit()">Edit</button>
+                <br />
+                <button class="btn btn-danger" (click)="delete()">Delete</button>
+              </td>
+            <tr>
+              <td>003</td>
+              <td>Mechanical Keyboard</td>
+              <td>$5</td>
+              <td>$4</td>
+              <td>Hp</td>
+              <td>Image1</td>
+              <td>Image2</td>
+              <td class="d-flex gap-1">
+                <button class="btn btn-info" (click)="edit()">Edit</button>
+                <br />
+                <button class="btn btn-danger" (click)="delete()">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
