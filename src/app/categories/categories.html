@@ -138,36 +138,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>001</td>
-                            <td>Electronics</td>
+                        @for(item of allCategories; track item){
+                             <tr>
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
                             <td>
-                               
-                                <button class="btn btn-warning" (click)="edit()">Edit</button>
+                                <button class="btn btn-warning" (click)="edit(item.id)">Edit</button>
                                 &nbsp;
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-danger" (click)="delete(item.id)">Delete</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>002</td>
-                            <td>Clothes</td>
-                            <td>
-                                
-                                <button class="btn btn-warning" (click)="edit()">Edit</button>
-                                &nbsp;
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>003</td>
-                            <td>Grocerry</td>
-                            <td>
-                                
-                                <button class="btn btn-warning" (click)="edit()">Edit</button>
-                                &nbsp;
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
+                        }
+
+                        @empty{
+                            <tr>
+                                <td>No Data Founded</td>
+                            </tr>
+                        }
+                       
                     </tbody>
                 </table>
             </div>
