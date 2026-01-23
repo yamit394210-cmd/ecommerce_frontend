@@ -19,5 +19,5 @@ export const routes: Routes = [
     {path:"orders", component:Orders},
     {path:"products", component:Products},
     {path:"updatecategory/:id", component:Updatecategory},
-    {path:"updateproduct", component:Updateproduct}
+    {path:"updateproduct/:id", component:Updateproduct}
 ]

@@ -138,11 +138,14 @@
                 <label for="description">Enter Product Description</label>
                 <input type="text" name="description" class="form-control" id="description" [(ngModel)]="description" />
                 <br />
+                <label for="category">Enter Product Category</label>
+                <input type="text" name="category" class="form-control" id="category" [(ngModel)]="category" />
+                <br />
                 <label for="image1">Enter Product Image1</label>
-                <input type="file" name="image1" class="form-control" id="image1" />
+                <input type="file" name="image1" class="form-control" id="image1" (change)="onfile1($event)"/>
                 <br />
                 <label for="image2">Enter Product Image2</label>
-                <input type="file" name="image2" class="form-control" id="image2" />
+                <input type="file" name="image2" class="form-control" id="image2" (change)="onfile2($event)" />
                 <br />
                 <button class="btn btn-primary">Submit</button>
               </form>
@@ -159,58 +162,47 @@
         <table>
           <thead>
             <tr>
-              <th>Product ID</th>
-              <th>Product Name</th>
-              <th>Product MRP</th>
-              <th>Product Sale Price</th>
-              <th>Product Description</th>
-              <th>Product Image1</th>
-              <th>Product image2</th>
+              <th>ID</th>
+              <th>Name</th>
+              <th>MRP</th>
+              <th>Sale Price</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Image1</th>
+              <th>image2</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>001</td>
-              <td>Wirelsess Mouse</td>
-              <td>$5</td>
-              <td>$4</td>
-              <td>Hp</td>
-              <td>Image1</td>
-              <td>Image2</td>
+            @for(item of allProducts; track item){
+              <tr>
+              <td>{{item.id}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.mrp}}</td>
+              <td>{{item.saleprice}}</td>
+              <td>{{item.description}}</td>
+              <td>{{item.category}}</td>
+              <td>
+                <!-- <img *ngIf="item.image1" [src]="'http://localhost:8080/api/uploads/'+item.image1" alt="image1" height="100px" width="100px"> -->
+                 {{item.image1}}
+              </td>
+              <td>
+                <!-- <img *ngIf="item.image2" [src]="'http://localhost:8080/api/uploads/'+item.image2" alt="image2" height="100px" width="100px"> -->
+                 {{item.image2}}
+              </td>
               <td class="d-flex gap-1">
-                <button class="btn btn-info" (click)="edit()">Edit</button>
+                <button class="btn btn-info" (click)="edit(item.id)">Edit</button>
                 <br />
-                <button class="btn btn-danger" (click)="delete()">Delete</button>
+                <button class="btn btn-danger" (click)="delete(item.id)">Delete</button>
               </td>
             </tr>
-            <tr>
-              <td>002</td>
-              <td>Bluetooth SmartWatch</td>
-              <td>$5</td>
-              <td>$4</td>
-              <td>Hp</td>
-              <td>Image1</td>
-              <td>Image2</td>
-              <td class="d-flex gap-1">
-                <button class="btn btn-info" (click)="edit()">Edit</button>
-                <br />
-                <button class="btn btn-danger" (click)="delete()">Delete</button>
-              </td>
-            <tr>
-              <td>003</td>
-              <td>Mechanical Keyboard</td>
-              <td>$5</td>
-              <td>$4</td>
-              <td>Hp</td>
-              <td>Image1</td>
-              <td>Image2</td>
-              <td class="d-flex gap-1">
-                <button class="btn btn-info" (click)="edit()">Edit</button>
-                <br />
-                <button class="btn btn-danger" (click)="delete()">Delete</button>
-              </td>
-            </tr>
+            } 
+            @empty{
+              <tr>
+                <td>Data Not Founded</td>
+              </tr>
+            }
+            
           </tbody>
         </table>
       </div>

@@ -78,11 +78,15 @@
                             <input type="text" name="description" class="form-control" id="description"
                                 [(ngModel)]="description" />
                             <br />
+                            <label for="category">Update Product Category</label>
+                            <input type="number" name="category" class="form-control" id="category"
+                                [(ngModel)]="category" />
+                            <br />
                             <label for="image1">Update Product Image1</label>
-                            <input type="file" name="image1" class="form-control" id="image1" />
+                            <input type="file" name="image1" class="form-control" id="image1" (change)="onfile1($event)" />
                             <br />
                             <label for="image2">Update Product Image2</label>
-                            <input type="file" name="image2" class="form-control" id="image2" />
+                            <input type="file" name="image2" class="form-control" id="image2" (change)="onfile2($event)" />
                             <br />
                             <button class="btn btn-primary">Submit</button>
                         </form>
